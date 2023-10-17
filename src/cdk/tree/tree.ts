@@ -37,6 +37,7 @@ import {
   ViewChild,
   ViewContainerRef,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import {
   BehaviorSubject,
@@ -1084,6 +1085,8 @@ export class CdkTree<T, K = T>
   },
 })
 export class CdkTreeNode<T, K = T> implements OnDestroy, OnInit, TreeKeyManagerItem {
+  public _changeDetectorRef = inject(ChangeDetectorRef);
+
   /**
    * The role of the tree node.
    *
@@ -1220,7 +1223,6 @@ export class CdkTreeNode<T, K = T> implements OnDestroy, OnInit, TreeKeyManagerI
   constructor(
     protected _elementRef: ElementRef<HTMLElement>,
     protected _tree: CdkTree<T, K>,
-    public _changeDetectorRef: ChangeDetectorRef,
   ) {
     CdkTreeNode.mostRecentTreeNode = this as CdkTreeNode<T, K>;
   }

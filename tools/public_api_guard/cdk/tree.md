@@ -58,7 +58,7 @@ export const CDK_TREE_NODE_OUTLET_NODE: InjectionToken<{}>;
 
 // @public
 export class CdkNestedTreeNode<T, K = T> extends CdkTreeNode<T, K> implements AfterContentInit, OnDestroy, OnInit {
-    constructor(elementRef: ElementRef<HTMLElement>, tree: CdkTree<T, K>, changeDetectorRef: ChangeDetectorRef, _differs: IterableDiffers);
+    constructor(elementRef: ElementRef<HTMLElement>, tree: CdkTree<T, K>, _differs: IterableDiffers);
     protected _children: T[];
     protected _clear(): void;
     // (undocumented)
@@ -148,7 +148,7 @@ export class CdkTreeModule {
 
 // @public
 export class CdkTreeNode<T, K = T> implements OnDestroy, OnInit, TreeKeyManagerItem {
-    constructor(_elementRef: ElementRef<HTMLElement>, _tree: CdkTree<T, K>, _changeDetectorRef: ChangeDetectorRef);
+    constructor(_elementRef: ElementRef<HTMLElement>, _tree: CdkTree<T, K>);
     activate(): void;
     readonly activation: EventEmitter<T>;
     // (undocumented)

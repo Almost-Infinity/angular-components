@@ -86,13 +86,12 @@ export class MatTreeNode<T, K = T>
   constructor(
     elementRef: ElementRef<HTMLElement>,
     tree: CdkTree<T, K>,
-    changeDetectorRef: ChangeDetectorRef,
     // Ignore tabindex attribute. MatTree manages its own active state using TreeKeyManager.
     // Keeping tabIndex in constructor for backwards compatibility with trees created before
     // introducing TreeKeyManager.
     @Attribute('tabindex') tabIndex: string,
   ) {
-    super(elementRef, tree, changeDetectorRef);
+    super(elementRef, tree);
   }
 
   // This is a workaround for https://github.com/angular/angular/issues/23091
@@ -159,13 +158,12 @@ export class MatNestedTreeNode<T, K = T>
     elementRef: ElementRef<HTMLElement>,
     tree: CdkTree<T, K>,
     differs: IterableDiffers,
-    changeDetectorRef: ChangeDetectorRef,
     // Ignore tabindex attribute. MatTree manages its own active state using TreeKeyManager.
     // Keeping tabIndex in constructor for backwards compatibility with trees created before
     // introducing TreeKeyManager.
     @Attribute('tabindex') tabIndex: string,
   ) {
-    super(elementRef, tree, changeDetectorRef, differs);
+    super(elementRef, tree, differs);
   }
 
   // This is a workaround for https://github.com/angular/angular/issues/19145
