@@ -116,7 +116,7 @@ export class CdkTree<T, K = T> implements AfterContentChecked, AfterContentInit,
     // (undocumented)
     _nodeOutlet: CdkTreeNodeOutlet;
     _registerNode(node: CdkTreeNode<T, K>): void;
-    _renderNodeChanges(data: readonly T[], dataDiffer?: IterableDiffer<T>, viewContainer?: ViewContainerRef, parentData?: T): void;
+    renderNodeChanges(data: readonly T[], dataDiffer?: IterableDiffer<T>, viewContainer?: ViewContainerRef, parentData?: T): void;
     _sendKeydownToKeyManager(event: KeyboardEvent): void;
     _setNodeTypeIfUnset(nodeType: 'flat' | 'nested'): void;
     _setTabIndex(): void;

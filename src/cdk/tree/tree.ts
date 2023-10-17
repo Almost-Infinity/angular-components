@@ -425,14 +425,14 @@ export class CdkTree<T, K = T>
         .subscribe(([data, nodeType]) => {
           if (nodeType === null) {
             // Skip saving cached and key manager data.
-            this._renderNodeChanges(data.renderNodes);
+            this.renderNodeChanges(data.renderNodes);
             return;
           }
 
           // If we're here, then we know what our node type is, and therefore can
           // perform our usual rendering pipeline.
           this._updateCachedData(data.flattenedNodes);
-          this._renderNodeChanges(data.renderNodes);
+          this.renderNodeChanges(data.renderNodes);
           this._updateKeyManagerItems(data.flattenedNodes);
         });
     } else if (typeof ngDevMode === 'undefined' || ngDevMode) {
@@ -457,7 +457,7 @@ export class CdkTree<T, K = T>
   }
 
   /** Check for changes made in the data and render each change (node added/removed/moved). */
-  _renderNodeChanges(
+  renderNodeChanges(
     data: readonly T[],
     dataDiffer: IterableDiffer<T> = this._dataDiffer,
     viewContainer: ViewContainerRef = this._nodeOutlet.viewContainer,
